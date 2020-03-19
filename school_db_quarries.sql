@@ -8,7 +8,8 @@ order by ID;
 select firstName, lastName, studentID, courseID, grade
 from student
 join enrolled
-on student.id = enrolled.studentID;
+on student.id = enrolled.studentID
+order by firstName, courseID;
 
 select subject, name, quarter, courseID, studentID
 from course
@@ -16,6 +17,14 @@ join enrolled
 on course.id = enrolled.courseID
 order by quarter;
 
+-- 3 table join 
+select firstName, lastName, studentID, subject, quarter, credits, grade
+from student s
+join enrolled e 
+ on e.studentID = s.id
+join course c
+ on c.id = e.courseID
+ order by firstName;
 /* SELECT AccountHolder, TxnType, Amount
  from transaction
  join account
